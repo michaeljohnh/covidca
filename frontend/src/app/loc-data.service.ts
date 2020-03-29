@@ -10,7 +10,7 @@ export class LocDataService {
 
   constructor(private http: HttpClient) { }
 
-  private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseUrl = 'http://www.covidca.org/api';
 
   public getLocations(): Promise<Location[]> {
     const lng:number = -118.603219;
