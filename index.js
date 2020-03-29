@@ -1,10 +1,11 @@
-const express =require ('express');
+const express = require ('express');
 const cors = require ('cors');
 const bodyParser =require ('body-parser');
 const mongoose = require ('mongoose');
 
 var debug = require('debug')('loc8r:server');
 var http = require('http');
+var path = require('path');
 
 
 const app = express();
@@ -12,10 +13,17 @@ const router = express.Router();
 
 const dbURI = 'mongodb+srv://michaelh:P6LqVssXCO8dMT9M@cluster0-b1ubn.mongodb.net/COVIDCA?retryWrites=true&w=majority';
 
-app.get('/', (req, res) => res.send('Hello World!'));
+//app.get('/', (req, res) => res.send('Hello World!'));
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use('/api', (req,res,next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  next();
+});
+
 
 mongoose.connect(dbURI,{useNewUrlParser:true});
 const connection = mongoose.connection;
@@ -82,6 +90,8 @@ router
           }
         });
 
+        // console.log(results);
+
         return res
                 .status(200)
                 .json(results);
@@ -113,8 +123,8 @@ router
           })
         });
 
-app.use('/',router);
-
+// app.use('/',router);
+app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 /**
  * Get port from environment and store in Express.
  */
