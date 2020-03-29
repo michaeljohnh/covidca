@@ -3,6 +3,10 @@ const cors = require ('cors');
 const bodyParser =require ('body-parser');
 const mongoose = require ('mongoose');
 
+var debug = require('debug')('loc8r:server');
+var http = require('http');
+
+
 const app = express();
 const router = express.Router();
 
