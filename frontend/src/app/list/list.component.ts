@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR } from '@angular/core';
 import { Location } from '../location';
 import { LocDataService } from '../loc-data.service';
 import { GeolocationService } from '../geolocation.service';
@@ -30,7 +30,16 @@ export class ListComponent implements OnInit {
   }
 
   private showError(error:any):void {
-    this.message= error.message;
+    // this.message= error.message;
+
+    const lng:number = -118.603219;
+    const lat:number = 34.228716;
+    this.locDataService
+        .getLocations(lat,lng)
+        .then(foundLocations => {
+          this.message = foundLocations.length > 0 ? '' : 'No locations found';
+          this.locations = foundLocations;
+        });
   };
 
   private noGeo(): void {
