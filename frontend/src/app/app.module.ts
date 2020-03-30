@@ -10,18 +10,21 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule, MatCard} from '@angular/material/card';
 
 import { FrameworkComponent } from './framework/framework.component';
 import {RouterModule} from '@angular/router';
 import { AboutComponent } from './about/about.component';
-import { DistancePipe } from './distance.pipe'
+import { DistancePipe } from './distance.pipe';
+import { LocationDetailsComponent } from './location-details/location-details.component'
 
 @NgModule({
   declarations: [
     ListComponent,
     FrameworkComponent,
     AboutComponent,
-    DistancePipe
+    DistancePipe,
+    LocationDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,8 @@ import { DistancePipe } from './distance.pipe'
     MatToolbarModule,
     MatDividerModule,
     MatButtonModule,
+    MatCardModule,
+  
 
     RouterModule.forRoot([
       {
@@ -40,6 +45,10 @@ import { DistancePipe } from './distance.pipe'
       {
         path:'about',
         component: AboutComponent
+      },
+      {
+        path:'location/:locationId',
+        component: LocationDetailsComponent
       }
     ])
   ],
