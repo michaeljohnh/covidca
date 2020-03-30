@@ -10,7 +10,7 @@ export class LocDataService {
 
   constructor(private http: HttpClient) { }
 
-  private apiBaseUrl = 'http://www.covidca.org/api';
+  private apiBaseUrl = 'https://serene-gorge-69001.herokuapp.com/api';
   //private apiBaseUrl = 'http://localhost:3000/api';
   
   public getLocations(lat:number, lng:number): Promise<Location[]> {
