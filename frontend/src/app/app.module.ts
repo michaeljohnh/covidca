@@ -17,7 +17,8 @@ import { FrameworkComponent } from './framework/framework.component';
 import {RouterModule} from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { DistancePipe } from './distance.pipe';
-import { LocationDetailsComponent } from './location-details/location-details.component'
+import { LocationDetailsComponent } from './location-details/location-details.component';
+import { NumbersComponent } from './numbers/numbers.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LocationDetailsComponent } from './location-details/location-details.co
     FrameworkComponent,
     AboutComponent,
     DistancePipe,
-    LocationDetailsComponent
+    LocationDetailsComponent,
+    NumbersComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,7 @@ import { LocationDetailsComponent } from './location-details/location-details.co
     RouterModule.forRoot([
       {
         path:'',
-        component: ListComponent
+        component: NumbersComponent
       },
       {
         path:'about',
@@ -50,6 +52,14 @@ import { LocationDetailsComponent } from './location-details/location-details.co
       {
         path:'location/:locationId',
         component: LocationDetailsComponent
+      },
+      {
+        path:'stats',
+        component: NumbersComponent
+      },
+      {
+        path:'hospitals',
+        component: ListComponent
       }
     ])
   ],

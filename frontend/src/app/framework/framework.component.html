@@ -1,12 +1,52 @@
-<mat-toolbar color="primary">
-<span>COVID California</span>
+<!-- <mat-toolbar color="primary">
+<span>COVIDCA.ORG<br></span>
  
-      <a mat-button routerLink=""> Home</a>
+      <a mat-button routerLink=""> Hospitals</a>
       <a mat-button routerLink="about" >About</a>
-</mat-toolbar>
-<router-outlet></router-outlet>
-<div>
-<footer>
-  <small> &copy; Michael Hilomen - michaelhilomen@gmail.com </small>
-</footer>
+</mat-toolbar> -->
+
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
+  <div class="container">
+    <a routerLink="" class="navbar-brand">COVIDCA.ORG</a>
+
+    <button type="button" data-toggle="collapse" data-target="#navbarMain" class="navbar-toggler">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbarMain" class="navbar-collapse collapse">
+
+      <ul class="navbar-nav mr-auto">
+
+        <li class=nav-item>
+          <a routerLink="stats" routerLinkActive="active" class="nav-link">Stats</a>
+        </li>
+
+
+        <li class=nav-item>
+          <a routerLink="hospitals" routerLinkActive="active" class="nav-link">Hospitals</a>
+        </li>
+
+        <li class=nav-item>
+          <a routerLink="about" routerLinkActive="active" class="nav-link">About</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container content">
+  <router-outlet></router-outlet>
+
 </div>
+<!-- <div>
+<footer>
+  <small> covidca.org - California Coronavirus Resource &copy; Michael Hilomen - michaelhilomen@gmail.com </small>
+</footer>
+</div> -->
+
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <span class="text-muted"><small>covidca.org - California Coronavirus Resource &copy; Michael Hilomen - michaelhilomen@gmail.com </small></span>
+  </div>
+</footer>

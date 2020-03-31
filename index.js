@@ -9,7 +9,10 @@ var path = require('path');
 
 
 const app = express();
-const router = express.Router();
+
+require ('./models/locations');
+require ('./models/places');
+
 const apiRouter = require('./routes/routes');
 
 const dbURI = 'mongodb+srv://michaelh:P6LqVssXCO8dMT9M@cluster0-b1ubn.mongodb.net/COVIDCA?retryWrites=true&w=majority';
@@ -32,8 +35,6 @@ connection.once('open', () => {
   console.log ('MongoDB database connection established successfully');
 });
 
-require ('./models/locations');
-const Loc = mongoose.model('Location');
 
 app.use('/api',apiRouter);
 
