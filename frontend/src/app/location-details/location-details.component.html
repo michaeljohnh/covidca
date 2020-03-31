@@ -1,3 +1,29 @@
-<mat-card>
-  <h2 class="mat-display-1">{{newLocation.FACILITY_NAME | titlecase }}</h2>
-</mat-card>
+<div class="row banner">
+  <div class ="col-12">
+    <h1>{{newLocation.FACILITY_NAME | titlecase }}</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-5">
+    <mat-card>
+    <p>{{newLocation.DBA_ADDRESS1 | titlecase}}, {{newLocation.DBA_CITY|titlecase}}, CA {{newLocation.DBA_ZIP_CODE}}<br>
+      <button mat-raised-button><a href="http://maps.apple.com/?q={{newLocation.FACILITY_NAME}}&ll={{newLocation.coords.coordinates[1]}},{{newLocation.coords.coordinates[0]}}">Open in Apple Maps</a></button>
+      <button mat-raised-button><a href="https://www.google.com/maps/search/?api=1&query={{newLocation.coords.coordinates[1]}},{{newLocation.coords.coordinates[0]}}">Open in Google Maps</a></button>
+    </p>
+    <mat-divider></mat-divider>
+    <p>Emergency Services: <mat-chip-list><mat-chip>{{ emergencyType }} </mat-chip></mat-chip-list></p>
+    <mat-divider></mat-divider>
+    <p>Total Number of Beds: <mat-chip-list><mat-chip>{{ newLocation.TOTAL_NUMBER_BEDS }} </mat-chip></mat-chip-list></p>
+    </mat-card>
+  </div>
+  <div class="col-12 col-md-5">
+    <mat-card>
+      <mat-card-title>
+        Location Map
+      </mat-card-title>
+      <mat-card-content>
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center={{newLocation.coords.coordinates[1]}},{{newLocation.coords.coordinates[0]}}&zoom=17&size=400x350&sensor=false&markers={{newLocation.coords.coordinates[1]}},{{newLocation.coords.coordinates[0]}}&key={{googleAPIKey}}&scale=2" class="img-fluid rounded"/>
+      </mat-card-content>
+      </mat-card>
+</div>

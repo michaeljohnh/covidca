@@ -10,7 +10,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule, MatCard} from '@angular/material/card';
+import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
 
 import { FrameworkComponent } from './framework/framework.component';
 import {RouterModule} from '@angular/router';
@@ -35,7 +36,7 @@ import { LocationDetailsComponent } from './location-details/location-details.co
     MatDividerModule,
     MatButtonModule,
     MatCardModule,
-  
+    MatChipsModule,
 
     RouterModule.forRoot([
       {
